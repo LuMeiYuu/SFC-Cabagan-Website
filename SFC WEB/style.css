@@ -1,0 +1,229 @@
+
+
+.footer-bar {
+  background-color: #d4ba13; /* Match the color as desired */
+  height: 35px;
+  display: flex;
+  align-items: center; /* Centers the text vertically */
+  padding-right: 20px; /* Adds some padding from the right edge */
+}
+
+.footer-bar p {
+  font-family: 'Poppins';
+  margin: 0;
+  color: #470d1e; /* Text color */
+  font-size: 16px;
+  margin-left: auto; /* Aligns the text to the right */
+}
+
+     body {
+      font-family: "Playfair Display";
+      font-weight: 500;
+      margin: 0;
+      padding: 0;
+      background-color: #F2F2F2;
+    }
+
+    
+    
+    header {
+      background-color: #470d1e;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+    
+    header img {
+      width: 300px; 
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-right: 60px;
+      text-shadow: 2px 2px 3px rgba(46, 46, 46, 0.5);
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      
+
+    }
+    
+    nav li {
+      margin-left: 20px;
+      padding: 5px;
+      position: relative;
+    }
+
+    .non-drop a::after { 
+      content: ''; 
+      position: absolute; 
+      width: 100%; 
+      height: 3px; 
+      background-color: yellow; 
+      
+      bottom: 0; 
+      left: 0; 
+      transform: scaleX(0); 
+      transform-origin: top right; 
+      transition: transform 0.3s ease-out;
+    }
+    .non-drop a:hover::after { 
+      transform: scaleX(1); 
+      transform-origin: top left; }
+
+    nav a:hover {
+      color: #f0d316
+    }
+    
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .dropdown-content {
+      display: none; 
+      position: absolute; 
+      margin-top: 10px;
+      margin-left: 3px;
+      transform: translateX(-50%);
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+      
+    }
+
+    .dropdown-content li {
+      margin-left: 1px;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      text-align: left;
+      border-radius: 5px;
+    }
+       
+       .dropdown-content a:not(:last-child) {
+      border-bottom: 2px solid #000000;
+      
+    }
+
+    nav li:hover .dropdown-content {
+      display: block;
+      
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #470d1e;
+      color: #f0d316;
+      
+    }
+    
+    
+    main {
+      padding: 0px;
+    }
+
+
+
+/* Background types*/
+    .imgbg {
+      background-image: url('bg1.jpg'); 
+      
+
+    }
+
+    .solidlightbg {
+      background-color: #FFFFFF;
+      padding: 20px;
+    }
+
+    .brownbg {
+      padding: 30px;
+      justify-items: center;
+
+    }
+
+  .multicard {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1px;
+  }
+
+
+
+    .main-card {
+      background-color: rgba(244, 244, 244, 0.84);
+      padding: 10px;
+      border-radius: 5px;
+      display: block;
+      justify-items: center;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+      margin: 30px;
+      
+    }
+
+     h1{
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      font-size: 50px;
+      margin-bottom: 5px;
+    }
+
+    .main-card p {
+      font-size: 20px;
+    }
+
+    .main-card .img-wrap{
+      width: 300px;
+      margin: 20px;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    }
+
+    
+
+    .subcard {
+      display:flex;
+      
+      padding: 10px;
+    }
+    
+    footer {
+      background-color: #b68f10;
+      color: #f9f9f9;
+      padding: 35px 20px;
+      display: flex;
+      justify-content: space-around;
+      font-family: 'Poppins';
+      
+    }
+
+    footer img {
+      height :100px;
+      background-color: #470d1e;
+      align-self: center;
+      border-radius: 5px
+    }
+
+    footer div{
+      padding: 1px;
+
+    }
+
+
+  
