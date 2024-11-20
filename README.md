@@ -43,11 +43,11 @@ History
 
 Academics
 
-6. Basic Education
+6. Preschool and Elementary
 
-7. College of Education
+7. High School
 
-8. College of Criminology
+8. Senior High School
 
 9. Classes
 
