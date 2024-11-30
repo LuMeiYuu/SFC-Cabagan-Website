@@ -10,7 +10,90 @@
   <link rel="stylesheet" type="text/css"href="..\style.css">
   <link rel="stylesheet" type="text/css"href="Historystyle.css">
   <link rel="icon" href="..\favicon.png" type="image/png">
-  
+  <style>
+   .cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+    .drop-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card-header {
+      padding: 1.5rem;
+      background: #f8f8f8;
+    }
+
+    .card-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    .expand-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, 
+                opacity 0.3s ease-out,
+                padding 0.3s ease-out;
+      padding: 0 1.5rem;
+      cursor: default;
+      position: relative;
+    z-index: 1;
+    }
+
+    .drop-card:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .drop-card.active .card-content {
+      max-height: 1000px;
+      opacity: 1;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .drop-card.active {
+    margin-bottom: 20px;
+}
+
+    .drop-card.active .expand-icon {
+      transform: rotate(45deg);
+    }
+
+    .img-wrap {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .cards-container {
+        gap: 1rem;
+      }
+      
+      .img-wrap {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
  
@@ -73,34 +156,46 @@
   <div class="imgbg">
 
     <div class="headerimg">
-      <img src="../img/History.png" alt="Background image">
       <div class="overlay"></div>
-      <div class="centered-text">Basic Education Department</div>
+      <div class="header-content">
+        <h1>Basic Education Department</h1>
+        <p>Nurturing Young Minds for a Brighter Future</p>
+    </div>
   </div>
     
-    <div class="main-card">
-      <h1> Grade School </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History1.png">
-      <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore deleniti maxime minus soluta! Aspernatur, fuga? Molestias eos placeat asperiores fuga dolor, totam labore dolorum omnis sequi, dolorem esse fugiat velit! Lorem ipsum dolor sit amet consectetur adipisicing elit. A, porro maxime. Quas ad provident sequi, assumenda ipsum ab nisi reprehenderit hic consequuntur, animi voluptate culpa officia, perspiciatis ipsam nihil asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas odio adipisci in perspiciatis, accusamus aperiam consequatur porro dolorem commodi harum veritatis aliquam temporibus sequi excepturi. Repellat nostrum nulla quas nisi?</p>
-      </div> 
-      
+    <div class="cards-container">
+      <div class="drop-card">
+        <div class="card-header">
+          <h1>Grade School</h1>
+          <span class="expand-icon">+</span>
+        </div>
+        <div class="card-content">
+          <img class="img-wrap" src="../Images/History1.png">
+          <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+      </div>
 
-    </div>
-    <div class="main-card">
-      <h1> High School </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History2.png">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ipsum ut tempore dolorem dolore totam ipsa eligendi impedit! Harum officia et sint rerum repellendus ullam ducimus autem iure, amet non.</p>
-      </div> 
-    </div>
+      <div class="drop-card">
+        <div class="card-header">
+          <h1>Junior High School</h1>
+          <span class="expand-icon">+</span>
+        </div>
+        <div class="card-content">
+          <img class="img-wrap" src="../Images/History1.png">
+          <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+      </div>
 
-    <div class="main-card">
-      <h1> Senior High School </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History2.png">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ipsum ut tempore dolorem dolore totam ipsa eligendi impedit! Harum officia et sint rerum repellendus ullam ducimus autem iure, amet non.</p>
-      </div> 
+      <div class="drop-card">
+        <div class="card-header">
+          <h1>Senior High School</h1>
+          <span class="expand-icon">+</span>
+        </div>
+        <div class="card-content">
+          <img class="img-wrap" src="../Images/History1.png">
+          <p>Lorem ipsum dolor sit amet...</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -126,68 +221,14 @@
   </footer>
 
 <script>
-  // First carousel (slides)
-  const slides = document.querySelectorAll('.carousel-slide');
-  const slidePrevButton = document.querySelector('.carousel-button.prev');
-  const slideNextButton = document.querySelector('.carousel-button.next');
-  let currentSlide = 0;
-  const interval = 5000; // Change slide every 5 seconds
-  
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-  
-  function moveNextSlide() {
-    showSlide(currentSlide + 1);
-  }
-  
-  function movePreviousSlide() {
-    showSlide(currentSlide - 1);
-  }
-  
-  // Add click event listeners to slide buttons
-  slidePrevButton?.addEventListener('click', movePreviousSlide);
-  slideNextButton?.addEventListener('click', moveNextSlide);
-  
-  // Auto advance slides
-  setInterval(moveNextSlide, interval);
-  
-  // Second carousel (updates)
-  const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.update-card');
-  const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
-  const updateNextButton = document.querySelector('.updates-container .update-button.next');
-  let currentUpdateIndex = 0;
-  const cardsToShow = Math.floor(window.innerWidth / 320); // Approximate cards visible
-  
-  function updateSlider() {
-    const cardWidth = updateCards[0]?.offsetWidth + 20; // Include gap
-    if (updatesTrack) {
-      updatesTrack.style.transform = `translateX(-${currentUpdateIndex * cardWidth}px)`;
-    }
-  }
-  
-  function moveNextUpdate() {
-    currentUpdateIndex = Math.min(currentUpdateIndex + 1, updateCards.length - cardsToShow);
-    updateSlider();
-  }
-  
-  function movePreviousUpdate() {
-    currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
-    updateSlider();
-  }
-  
-  // Add click event listeners to update buttons
-  updatePrevButton?.addEventListener('click', movePreviousUpdate);
-  updateNextButton?.addEventListener('click', moveNextUpdate);
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    updateSlider();
-  });
 
+
+  document.querySelectorAll('.drop-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        if (e.target.closest('.card-content')) return;
+        card.classList.toggle('active');
+    });
+});
 </script>
 </body>
 

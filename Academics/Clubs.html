@@ -12,6 +12,121 @@
   <link rel="stylesheet" type="text/css"href="..\style.css">
   <link rel="stylesheet" type="text/css"href="Historystyle.css">
   <link rel="icon" href="..\favicon.png" type="image/png">
+
+  <style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.card-wrapper {
+  
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  justify-content: center; 
+}
+
+.flex-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px; 
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.flex-card img {
+  width: 250px;
+  max-width: 100%;
+  margin-top: 10px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.flex-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.flex-card:hover .img-wrap {
+  transform: scale(1.05);
+}
+
+.img-wrap {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.flex-card:hover h1 {
+  color: #470d1e;
+}
+
+@media (min-width: 768px) {
+  .flex-card {
+    flex: 0 1 calc(50% - 20px); 
+    max-width: 45%; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .flex-card {
+    flex: 0 1 calc(33.333% - 20px); 
+    max-width: 30%; 
+  }
+}
+        .flex-card h1 {
+          font-size: 2em;
+          margin-bottom: 0.5rem;
+          position: relative;
+        }
+
+        .flex-card h1::after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 2px;
+          margin-top: 0.5rem;
+          background: linear-gradient(to right, #d83333, #d4ba13);
+          transition: width 0.3s ease;
+        }
+
+        .flex-card:hover h1::after {
+          width: 100%;
+        }
+  </style>
   
 </head>
 <body>
@@ -72,43 +187,61 @@
    <body>
 
        
-  <div class="imgbg">
+    <div class="imgbg">
+      <div class="headerimg">
+        <div class="overlay"></div>
+        <div class="header-content">
+          <h1>Clubs and Organizations</h1>
+          <p>Nurturing Young Minds for a Brighter Future</p>
+      </div>
+    </div>
 
-    <div class="headerimg">
-      <img src="../img/History.png" alt="Background image">
-      <div class="overlay"></div>
-      <div class="centered-text">Clubs And Organizations<div>
+<div class="card-wrapper">
+
+  <div class ="flex-card">
+    <h1>Supreme Secondary Learners Goverment</h1>
+    <div class ="subcard">
+      <img class ="img-wrap" src = "../Images/Sslg.png">
+    </div>
   </div>
-    
-    <div class="main-card">
-      <h1> SSLG </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History1.png">
-      <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore deleniti maxime minus soluta! Aspernatur, fuga? Molestias eos placeat asperiores fuga dolor, totam labore dolorum omnis sequi, dolorem esse fugiat velit! Lorem ipsum dolor sit amet consectetur adipisicing elit. A, porro maxime. Quas ad provident sequi, assumenda ipsum ab nisi reprehenderit hic consequuntur, animi voluptate culpa officia, perspiciatis ipsam nihil asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas odio adipisci in perspiciatis, accusamus aperiam consequatur porro dolorem commodi harum veritatis aliquam temporibus sequi excepturi. Repellat nostrum nulla quas nisi?</p>
-      </div> 
-      
-
+  
+    <div class ="flex-card">
+    <h1>Gazette Basic Education </h1>
+    <div class ="subcard">
+      <img class ="img-wrap" src = "../Images/Bed_Gazette.png">
     </div>
-    <div class="main-card">
-      <h1> Gazette </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History2.png">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ipsum ut tempore dolorem dolore totam ipsa eligendi impedit! Harum officia et sint rerum repellendus ullam ducimus autem iure, amet non.</p>
-      </div> 
-    </div>
-
-    <div class="main-card">
-      <h1> Senior High School </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History2.png">
-      <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia ipsum ut tempore dolorem dolore totam ipsa eligendi impedit! Harum officia et sint rerum repellendus ullam ducimus autem iure, amet non.</p>
-      </div> 
-    </div>
-
+  
   </div>
+  <div class ="flex-card">
+    <h1>Mapeh Club Basic Education </h1>
+    <div class ="subcard">
+      <img class ="img-wrap" src = "../Images/Mapeh_Club.png">
+    </div>	
+    </div>
+    <div class ="flex-card">
+    <h1>College Sports Club</h1>
+    <div class ="subcard">
+      <img class ="img-wrap" src = "../Images/Collage_Sports.png">
+    </div>
+  </div>
+  <div class ="flex-card">
+    <h1>College Gazette</h1>
+    <div class ="subcard">
+      <img class ="img-wrap" src = "../Images/Collage_Gazette.png">
+    </div>
+  </div>
+
+</div>
   </body>
   </main>
   
+
+
+
+
+
+
+
   <footer>
     <div>
       <img src="logo.png">
