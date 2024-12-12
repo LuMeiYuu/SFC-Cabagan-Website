@@ -14,25 +14,53 @@
   <link rel="icon" href="..\favicon.png" type="image/png">
 
   <style>
-  * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.flex-card h1,
+.flex-card h2,
+.flex-card h3 {
+    position: relative;
+    margin-bottom: 0.5rem;
 }
 
-body, html {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
+.flex-card h1 {
+  font-size: 1.8rem;
+    color: #2c3e50;
+    text-align: center;  /* Add this line */
+    width: 100%; 
 }
 
-main {
-  width: 100%;
-  max-width: 100%;
-  padding: 0;
-  margin: 0;
+.flex-card h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
 }
 
+.flex-card h3 {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 400;
+    margin-top: .2rem;
+}
+
+.flex-card h1::after,
+.flex-card h2::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 0.5rem;
+    background: linear-gradient(to right, #d83333, #d4ba13);
+    transition: width 0.3s ease;
+}
+
+.flex-card:hover h1::after,
+.flex-card:hover h2::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .flex-card h1 { font-size: 1.5rem; }
+    .flex-card h2 { font-size: 1.3rem; }
+    .flex-card h3 { font-size: 1.1rem; }
+}
 
   </style>
   
@@ -53,7 +81,7 @@ main {
         <ul class="dropdown-content">
           <li><a href="../History/History.html">History</a></li>
           <li><a href="../History/PatronSaint.html">Patron Saint</a></li>
-          <li><a href="../History/Administration.html">Administration</a></li>
+          <li><a href="../History/Administration.html">Board Of Directors</a></li>
           <li><a href="../History/Mission.html">Mission And Vision</a></li>
         </ul>
       </li>
@@ -64,7 +92,7 @@ main {
           <li><a href="../Academics/Basiced.html">Basic Education</a></li>
           <li><a href="../Academics/Educ.html">College of Education </a></li>
           <li><a href="../Academics/Crim.html">College of Criminology</a></li>
-          <li><a href="../Academics/Class-Sched.html">Classes</a></li>
+          <li><a href="../Academics/BA.html">College of Business Administration</a></li>
           <li><a href="../Academics/Clubs.html">Clubs and Organizations</a></li>
         </ul>
       </li>
@@ -74,7 +102,7 @@ main {
         <ul class="dropdown-content">
           <li><a href="../Faculty/BedFaculty.html">Basic Education</a></li>
           <li><a href="../Faculty/College.html">College Department</a></li>
-          <li><a href="../Faculty/Staff.html">Non-Teaching</a></li>
+          <li><a href="../Faculty/Staff.html">Administration</a></li>
         </ul>
       </li>
 
@@ -100,7 +128,7 @@ main {
         <div class="overlay"></div>
         <div class="header-content">
           <h1>Clubs and Organizations</h1>
-          <p>Nurturing Young Minds for a Brighter Future</p>
+          <p>Discover diverse opportunities for growth, leadership, and community engagement through our dynamic student organizations</p>
       </div>
     </div>
 
