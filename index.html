@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css"href="style.css">
 <link rel="icon" href="favicon.png" type="image/png">
+
 <style>
   .carousel-container {
     width: auto;
@@ -52,24 +53,22 @@
 
 
   .updates-container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      padding: 20px 40px;
-    }
+    display: flex;
+    gap: 10px; /* Optional: space between cards */
+    overflow-x: auto; /* Optional: horizontal scroll if needed */
+}
 
     .updates-track {
       display: flex;
-      transition: transform 0.5s ease-in-out;
-      gap: 20px;
+   
     }
 
-    .update-card {
-      width: 300px;
-      flex-shrink: 0;
-      padding: 5px;
-    }
+    .bulletin {
+    flex: 0 0 auto;
+
+    margin-right: 10px; /* Optional: space between cards */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
     .update-link {
       text-decoration: none;
@@ -91,21 +90,21 @@
       outline-offset: 2px;
     }
 
-    .update-card img {
+    .bulletin img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       display: block;
     }
 
-    .update-card h3 {
+    .bulletin h3 {
       padding: 16px;
       margin: 0;
       
       color: #333;
     }
 
-    .update-card p {
+    .bulletin p {
       color: #333;
       padding: 16px;
     }
@@ -146,8 +145,11 @@
       right: 0;
     }
 
-    .updates-wrapper {
-      overflow: hidden;
+    
+
+    a {
+      text-decoration: underline;
+      color: inherit;
     }
 
 
@@ -284,12 +286,28 @@
 
 
 <div class="bulletin">
-<h1 ">Bulletin</h1>
+<h1 >Bulletin</h1>
 <ul>
-  <li>Academic Calendar</li>
-  <li>Suspension of Classes: Typhoon Ofel</li>
+  <li><a href="https://www.facebook.com/share/p/1DzD1i6vm3/">Suspension of Classes: Typhoon Ofel</a></li>
+  <li><a href="https://www.facebook.com/share/p/15LtNy4K9m/">Final Examination Schedule</a></li>
+  <li><a href="">Calendar Of Events</a></li>
 </ul>
 </div>
+
+<div class="card-wrapper"><h1>Official School Pages</h1></div>
+
+  <div class="vid-wrap" style="margin-top:1em;">
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D1499954263777315%26set%3Da.103070596799029&show_text=true&width=500" width="500" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+  
+  <div class="vid-wrap" style="margin-top:1em;">
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D107581291717048%26set%3Da.107536651721512&show_text=true&width=500" width="500" height="250" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+
+  <div class="vid-wrap" style="margin-top:1em;">
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122235572138002511%26set%3Da.122235572186002511&show_text=false&width=500" width="500" height="397" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+  </div>
+
 
 
 
@@ -305,61 +323,10 @@
 
 
   </div>
-  <div class="card-wrapper">
-  <h1>Official School Pages</h1>
+
   
-    <div class="updates-container">
-      <button class="update-button prev" aria-label="Previous update">❮</button>
-      <button class="update-button next" aria-label="Next update">❯</button>
-      
-      <div class="updates-wrapper">
-        <div class="updates-track">
-          <!-- Update 1 -->
-          <div class="update-card">
-            <a href="https://www.facebook.com/share/p/17huFSVBu7/" class="update-link">
-              <img src="..\images\news1.png" alt="Update 1">
-              <h3>SFC INTRAMURALS 2024</h3>
-              <p>On September 23, 2024, Sfc Cabagan Intramurals were underway</p>
-            </a>
-          </div>
-          
-          <!-- Update 2 -->
-          <div class="update-card">
-            <a href="https://www.facebook.com/share/p/1AYGSPpo6M/" class="update-link">
-              <img src="..\images\news2.png" alt="Update 2">
-              <h3>TEACHERS DAY 2024</h3>
-              <p>The SSLG Officers celebrated Teacher's day</p>
-            </a>
-          </div>
-          
-          <!-- Update 3 -->
-          <div class="update-card">
-            <a href="https://www.facebook.com/share/p/18z2Tmj9b6/" class="update-link">
-              <img src="..\images\news3.png" alt="Update 3">
-              <h3>Mental Health Month</h3>
-              <p>Lorem ipsum dolorem</p>
-            </a>
-          </div>
-          
-          <!-- Update 4 -->
-          <div class="update-card">
-            <a href="https://www.facebook.com/share/p/1GPaNrgkPC/" class="update-link">
-              <img src="..\images\news4.png" alt="Update 4">
-              <h3>ISELCO Symposium</h3>
-              <p>Lorem ipsum dolorem</p>
-            </a>
-          </div>
-          
-          <!-- Update 5 -->
-          <div class="update-card">
-            <a href="https://www.facebook.com/share/p/12AMKXcX7MM/" class="update-link">
-              <img src="..\images\news5.png" alt="Update 5">
-              <h3>District Palaro Winners</h3>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="card-wrapper">
+   
     
   </div>
 
@@ -367,23 +334,19 @@
   </main>
  
 <section class="alt-bg">
-  <div class="alt-overlay"></div>
+  
   <div class="card-wrapper">
     <div class="flex-card">
       <h1> Who We Are</h1>
-      <p> SFC Cabagan is a private educational institution that offers quality education to students in Cabagan, Isabela. </p>
+      <p> Saint Ferdinand College is a private, Catholic coeducational basic and higher education institution in Ilagan City, Isabela, Philippines. It was established in 1950 by the Knights of Columbus Ilagan Council 3705.[3] Its formal operation began in school year 1951–1952, with classes offering from Kindergarten to College Level. </p>
     </div>
 
-    <div class="flex-card">
-      <h1>Ready to Join Our Community?</h1>
-      <p>Take the first step towards excellence in education</p>
-      <a href="#" class="cta-button">Enroll Now</a>
+    
       
-  </div>
+  
  <div class="flex-card">
-      <h1>Ready to Join Our Community?</h1>
-      <p>Take the first step towards excellence in education</p>
-      <a href="#" class="cta-button">Enroll Now</a>
+      <h1>Where We Are</h1>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3200.9823984771333!2d121.76605495847313!3d17.42948153154106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3385790901e605ad%3A0x8c5fe6d181163968!2sSt.%20Ferdinand%20College%20Cabagan!5e0!3m2!1sen!2sph!4v1734351557505!5m2!1sen!2sph" width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       
   </div>
  
@@ -409,8 +372,13 @@
     </div>
 
     <div>
-      <h3>Follow us</h3>
-      <a href="#"> Facebook Page </a>
+      <h3>Programmed By</h3>
+      <p href="#"> May Richie Aggabao </p>
+
+      <h3>With The Help Of</h3>
+      <p href="#"> Dennis Rivera </p>
+      <p href="#"> Jurich Saquing </p>
+      <p href="#"> Zeus Bijanes </p>
     </div>
 
   </footer>
@@ -445,8 +413,8 @@
   setInterval(moveNextSlide, interval);
   
   // Second carousel (updates)
-  const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.update-card');
+  /* const updatesTrack = document.querySelector('.updates-track');
+  const updateCards = document.querySelectorAll('.bulletin');
   const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
   const updateNextButton = document.querySelector('.updates-container .update-button.next');
   let currentUpdateIndex = 0;
@@ -467,7 +435,7 @@
   function movePreviousUpdate() {
     currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
     updateSlider();
-  }
+  } */
   
   // Add click event listeners to update buttons
   updatePrevButton?.addEventListener('click', movePreviousUpdate);
