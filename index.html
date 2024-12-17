@@ -10,150 +10,127 @@
 <link rel="stylesheet" type="text/css"href="style.css">
 <link rel="icon" href="favicon.png" type="image/png">
 
+
+
+
+<script>
+    
+</script>
 <style>
   .carousel-container {
-    width: auto;
-    height: 500px;
+    width: 100%;
+    height: 50vw; /* Responsive height based on viewport width */
+    max-height: 500px;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
   }
-  
+
   .carousel-slide {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    object-fit: cover; /* Maintains aspect ratio */
   }
-  
+
   .carousel-slide.active {
     opacity: 1;
   }
-  
+
   .carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 8px 16px;
+    padding: min(2vw, 16px);
     cursor: pointer;
     border: none;
     z-index: 1;
-  }
-  
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
+    font-size: clamp(14px, 2vw, 20px);
   }
 
+  .prev { left: 10px; }
+  .next { right: 10px; }
 
   .updates-container {
     display: flex;
-    gap: 10px; /* Optional: space between cards */
-    overflow-x: auto; /* Optional: horizontal scroll if needed */
-}
+    gap: clamp(5px, 1vw, 10px);
+    overflow-x: auto;
+    padding: 10px;
+  }
 
-    .updates-track {
-      display: flex;
-   
+  .updates-track {
+    display: flex;
+    width: 100%;
+  }
+
+  .bulletin {
+    flex: 1 1 300px;
+    min-width: min(100%, 300px);
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .update-link {
+    text-decoration: none;
+    display: block;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+
+  .bulletin img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .bulletin h3 {
+    padding: clamp(10px, 2vw, 16px);
+    margin: 0;
+    font-size: clamp(16px, 2vw, 20px);
+  }
+
+  .bulletin p {
+    padding: clamp(10px, 2vw, 16px);
+    font-size: clamp(14px, 1.5vw, 16px);
+  }
+
+  /* Mobile-first responsive design */
+  @media (max-width: 768px) {
+    .carousel-container {
+      height: 60vw;
+    }
+
+    .carousel-button {
+      padding: 5px 10px;
     }
 
     .bulletin {
-    flex: 0 0 auto;
-
-    margin-right: 10px; /* Optional: space between cards */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-    .update-link {
-      text-decoration: none;
-      display: block;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
+      flex: 1 1 100%;
     }
+  }
 
-    .update-link:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .update-link:focus {
-      outline: 3px solid #007bff;
-      outline-offset: 2px;
-    }
-
-    .bulletin img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .bulletin h3 {
-      padding: 16px;
-      margin: 0;
-      
-      color: #333;
-    }
-
-    .bulletin p {
-      color: #333;
-      padding: 16px;
+  @media (max-width: 480px) {
+    .carousel-container {
+      height: 70vw;
     }
 
     .update-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-      z-index: 2;
+      width: 30px;
+      height: 30px;
     }
+  }
 
-    .update-button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    .update-button:focus {
-      outline: 3px solid #007bff;
-      outline-offset: 2px;
-    }
-
-    .prev {
-      left: 0;
-    }
-
-    .next {
-      right: 0;
-    }
-
-    
-
-    a {
-      text-decoration: underline;
-      color: inherit;
-    }
-
-
-
+  a {
+    text-decoration: underline;
+    color: inherit;
+  }
 
 
 </style>
@@ -168,7 +145,12 @@
   <header>
     <a href="../index.html"><img id="logo" src="../logo.png"> </a>
     <nav>
-      <ul>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+      <ul class="nav-menu">
         <li><a class="non-drop" href="#">About Us</a>
           <ul class="dropdown-content">
             <li><a href="../History/History.html">History</a></li>
@@ -178,7 +160,7 @@
           </ul>
         </li>
   
-        <li> | </li>
+        <li class="temp"> | </li>
         <li><a class="non-drop" href="#">Academics</a>
           <ul class="dropdown-content">
             <li><a href="../Academics/Basiced.html">Basic Education</a></li>
@@ -188,7 +170,7 @@
             <li><a href="../Academics/Clubs.html">Clubs and Organizations</a></li>
           </ul>
         </li>
-        <li> | </li>
+        <li class="temp"> | </li>
   
         <li><a class="non-drop" href="#">Faculty</a>
           <ul class="dropdown-content">
@@ -198,7 +180,7 @@
           </ul>
         </li>
   
-        <li> | </li>
+        <li class="temp"> | </li>
         <li><a class="non-drop" href="#">Services</a>
           <ul class="dropdown-content">
             <li><a href="../Services/StudPortal.html">Student Portal</a></li>
@@ -235,7 +217,7 @@
 
  <div class="card-wrapper" >
 <div class="flex-main">
-<h1>Hi Selen</h1>
+<h1>News And Events</h1>
 
 <a  href="https://www.facebook.com/share/p/19Rowwr1Dw/"  class="side-container">
   <img class="side-img" src="Images/news/1.jpg">
@@ -363,7 +345,7 @@
   <footer>
     <div>
       <img src="logo.png">
-      <p> &copy; 2024 SFC Cabagan. All Rights Reserved</p>
+      <p> </p>
     </div>
     <div>
       <h3>Get in Touch</h3>
@@ -371,17 +353,18 @@
       <p> +63 123-5678
     </div>
 
-    <div>
-      <h3>Programmed By</h3>
-      <p href="#"> May Richie Aggabao </p>
+    
 
-      <h3>With The Help Of</h3>
-      <p href="#"> Dennis Rivera </p>
-      <p href="#"> Jurich Saquing </p>
-      <p href="#"> Zeus Bijanes </p>
-    </div>
+   
 
   </footer>
+  <div class="credit-bar">
+    <p><strong> May Richie Aggabao (Project Manager, Software Developer)</strong><br><p> Jurich Saquing (Information Architech) - Dennis Rivera (Assistant Programmer) - Zeus Bijanes (Assistant Information Architech)
+<br> <br> &copy; 2024 SFC Cabagan TVL-ICT 12 2025-2025. All Rights Reserved</p>
+
+    </p>
+  
+  </div>
 </body>
 <script>
   // First carousel (slides)
@@ -406,46 +389,41 @@
   }
   
   // Add click event listeners to slide buttons
-  slidePrevButton?.addEventListener('click', movePreviousSlide);
-  slideNextButton?.addEventListener('click', moveNextSlide);
-  
-  // Auto advance slides
-  setInterval(moveNextSlide, interval);
-  
-  // Second carousel (updates)
-  /* const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.bulletin');
-  const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
-  const updateNextButton = document.querySelector('.updates-container .update-button.next');
-  let currentUpdateIndex = 0;
-  const cardsToShow = Math.floor(window.innerWidth / 320); // Approximate cards visible
-  
-  function updateSlider() {
-    const cardWidth = updateCards[0]?.offsetWidth + 20; // Include gap
-    if (updatesTrack) {
-      updatesTrack.style.transform = `translateX(-${currentUpdateIndex * cardWidth}px)`;
-    }
+  if (slidePrevButton && slideNextButton) {
+    slidePrevButton.addEventListener('click', movePreviousSlide);
+    slideNextButton.addEventListener('click', moveNextSlide);
+    
+    // Auto advance slides
+    setInterval(moveNextSlide, interval);
   }
-  
-  function moveNextUpdate() {
-    currentUpdateIndex = Math.min(currentUpdateIndex + 1, updateCards.length - cardsToShow);
-    updateSlider();
-  }
-  
-  function movePreviousUpdate() {
-    currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
-    updateSlider();
-  } */
-  
-  // Add click event listeners to update buttons
-  updatePrevButton?.addEventListener('click', movePreviousUpdate);
-  updateNextButton?.addEventListener('click', moveNextUpdate);
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    updateSlider();
-  });
+</script>
 
+<script> 
+  const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navItems = document.querySelectorAll('.non-drop');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            item.classList.toggle('active');
+        }
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && 
+        !navMenu.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navItems.forEach(item => item.classList.remove('active'));
+    }
+});
 </script>
 </body>
 

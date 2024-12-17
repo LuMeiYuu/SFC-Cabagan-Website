@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css"href="..\style.css">
   <link rel="stylesheet" type="text/css"href="Historystyle.css">
   <link rel="icon" href="..\favicon.png" type="image/png">
-  
+
 </head>
 <body>
  
@@ -25,7 +25,12 @@
 <header>
   <a href="../index.html"><img id="logo" src="../logo.png"> </a>
   <nav>
-    <ul>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+    <ul class="nav-menu">
       <li><a class="non-drop" href="#">About Us</a>
         <ul class="dropdown-content">
           <li><a href="../History/History.html">History</a></li>
@@ -35,7 +40,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Academics</a>
         <ul class="dropdown-content">
           <li><a href="../Academics/Basiced.html">Basic Education</a></li>
@@ -45,7 +50,7 @@
           <li><a href="../Academics/Clubs.html">Clubs and Organizations</a></li>
         </ul>
       </li>
-      <li> | </li>
+      <li class="temp"> | </li>
 
       <li><a class="non-drop" href="#">Faculty</a>
         <ul class="dropdown-content">
@@ -55,7 +60,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Services</a>
         <ul class="dropdown-content">
           <li><a href="../Services/StudPortal.html">Student Portal</a></li>
@@ -84,16 +89,23 @@
 
     <div class="main-card">
       <h1> Bachelor of Science in Criminology </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History1.png">
-      <p>The College of Criminology offers in the context of Integral Evangelization, a holistic education to develop professionals equipped with Christian Values, scientific knowledge and skills, to able to deliver efficient and effective services in the field of Criminal Justice System for the enhancement of JUSTICE, PEACE and ORDER based on just laws and the Gospel for the common good.
+   
+        <div class="side-container" style="margin: 2px;border: 0px; box-shadow: none;">
+        
+          <img class="side-img" style="max-height: 500px;height: 100%;" src="../Images/crim.jpg">
+    
+          
+      <div class="side-title"> 
+        <p>The College of Criminology offers in the context of Integral Evangelization, a holistic education to develop professionals equipped with Christian Values, scientific knowledge and skills, to able to deliver efficient and effective services in the field of Criminal Justice System for the enhancement of JUSTICE, PEACE and ORDER based on just laws and the Gospel for the common good.
         </p> <br>
         <p>The College of Criminology started its formal operation in SY 1994-1995 with the offering of four-year course leading to the degree of Bachelor of Science in Criminology major in Police Administration. It started with two pioneering sections of 80 freshmen students.
 
           During its first year of operation, the department was placed under the umbrella of the College of Education which was headed by the Dean of Education, Dr. Salome S. Cari�o. In 1995 to 1996, it was transferred to the College of Arts and Science under the Deanship of Dr. Prescilo L. Buslig and from 1996 to date, the College of Criminology was separated and introduced as a new academic department in St. Ferdinand College. This is in line with the Commission on Higher Education (CHED) mandate and in preparation for the recognition of the degree of Bachelor of Science in Criminology.</p>
-      </div> 
+      
       </div>
-   
+
+
+
 
   </div>
   </body>
@@ -117,70 +129,34 @@
 
   </footer>
 
-<script>
-  // First carousel (slides)
-  const slides = document.querySelectorAll('.carousel-slide');
-  const slidePrevButton = document.querySelector('.carousel-button.prev');
-  const slideNextButton = document.querySelector('.carousel-button.next');
-  let currentSlide = 0;
-  const interval = 5000; // Change slide every 5 seconds
-  
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-  
-  function moveNextSlide() {
-    showSlide(currentSlide + 1);
-  }
-  
-  function movePreviousSlide() {
-    showSlide(currentSlide - 1);
-  }
-  
-  // Add click event listeners to slide buttons
-  slidePrevButton?.addEventListener('click', movePreviousSlide);
-  slideNextButton?.addEventListener('click', moveNextSlide);
-  
-  // Auto advance slides
-  setInterval(moveNextSlide, interval);
-  
-  // Second carousel (updates)
-  const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.update-card');
-  const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
-  const updateNextButton = document.querySelector('.updates-container .update-button.next');
-  let currentUpdateIndex = 0;
-  const cardsToShow = Math.floor(window.innerWidth / 320); // Approximate cards visible
-  
-  function updateSlider() {
-    const cardWidth = updateCards[0]?.offsetWidth + 20; // Include gap
-    if (updatesTrack) {
-      updatesTrack.style.transform = `translateX(-${currentUpdateIndex * cardWidth}px)`;
-    }
-  }
-  
-  function moveNextUpdate() {
-    currentUpdateIndex = Math.min(currentUpdateIndex + 1, updateCards.length - cardsToShow);
-    updateSlider();
-  }
-  
-  function movePreviousUpdate() {
-    currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
-    updateSlider();
-  }
-  
-  // Add click event listeners to update buttons
-  updatePrevButton?.addEventListener('click', movePreviousUpdate);
-  updateNextButton?.addEventListener('click', moveNextUpdate);
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    updateSlider();
-  });
-
-</script>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navItems = document.querySelectorAll('.non-drop');
+    
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                item.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !navMenu.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navItems.forEach(item => item.classList.remove('active'));
+        }
+    });
+    
+    </script>
 </body>
 
 </html>

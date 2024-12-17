@@ -10,7 +10,7 @@
   <link rel="stylesheet" type="text/css"href="..\style.css">
   <link rel="stylesheet" type="text/css"href="Historystyle.css">
   <link rel="icon" href="..\favicon.png" type="image/png">
-  
+
 </head>
 <body>
  
@@ -23,7 +23,12 @@
 <header>
   <a href="../index.html"><img id="logo" src="../logo.png"> </a>
   <nav>
-    <ul>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+    <ul class="nav-menu">
       <li><a class="non-drop" href="#">About Us</a>
         <ul class="dropdown-content">
           <li><a href="../History/History.html">History</a></li>
@@ -33,7 +38,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Academics</a>
         <ul class="dropdown-content">
           <li><a href="../Academics/Basiced.html">Basic Education</a></li>
@@ -43,7 +48,7 @@
           <li><a href="../Academics/Clubs.html">Clubs and Organizations</a></li>
         </ul>
       </li>
-      <li> | </li>
+      <li class="temp"> | </li>
 
       <li><a class="non-drop" href="#">Faculty</a>
         <ul class="dropdown-content">
@@ -53,7 +58,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Services</a>
         <ul class="dropdown-content">
           <li><a href="../Services/StudPortal.html">Student Portal</a></li>
@@ -79,17 +84,30 @@
 </div>
     </div>
     
+  
+
     <div class="main-card">
-      <h1> Founding </h1>
-      <div class="subcard">
-      <img class="img-wrap" src="../Images/History1.png">
-      <p>
-        During the mid-1990s, the school expanded its academic offerings and infrastructure. It launched BS Biology and BS Nutrition and Dietetics in 1996, and later BS Computer Science, Information Technology, and Information Management in SY 1999-2000.<br> The College of Education added new majors, while the College of Arts and Sciences introduced AB Political Science, Economics, and Philosophy.<br> The College of Commerce expanded with a BSC major in Business Administration, and the Graduate School began offering Master of Arts in English and Mathematics. Legal education was introduced with a Bachelor of Laws in SY 2000-2001.
-        <br>
-        Infrastructure improvements included a 4-story high school and elementary building, and renovations for Nursing and Midwifery programs.<br> Accreditation efforts began in 2000, achieving Level I and Level II statuses for various programs between 2001 and 2005, including Education, Liberal Arts, Commerce, Accountancy, Nursing, and Criminology.</p>
-              </div> 
+      <h1>Founding</h1>
+      <div class="side-container" style="border-width: 0px; box box-shadow: none;">
       
-    </div> 
+      <img class="side-img" src="../Images/founding.png">
+
+      
+  <div class="side-title"> 
+    <p>
+      St. Ferdinand College, a Catholic educational institution, was founded on September 28, 1950 by Msgr. Ricardo A. Jamias and Judge Manuel Arranz who were members of the Knight of Columbus IIagan Center, now Council 3705, Dr. Jose Valdez and Msgr. Alejandro Olalia. The Articles of incorporation was signed on December 21, 1950.
+    During the mid-1990s, the school expanded its academic offerings and infrastructure. It launched BS Biology and BS Nutrition and Dietetics in 1996, and later BS Computer Science, Information Technology, and Information Management in SY 1999-2000.<br> The College of Education added new majors, while the College of Arts and Sciences introduced AB Political Science, Economics, and Philosophy.<br> The College of Commerce expanded with a BSC major in Business Administration, and the Graduate School began offering Master of Arts in English and Mathematics. Legal education was introduced with a Bachelor of Laws in SY 2000-2001.
+    <br>
+    Infrastructure improvements included a 4-story high school and elementary building, and renovations for Nursing and Midwifery programs.<br> Accreditation efforts began in 2000, achieving Level I and Level II statuses for various programs between 2001 and 2005, including Education, Liberal Arts, Commerce, Accountancy, Nursing, and Criminology.</p>
+  </p> 
+  </div>
+      
+
+          
+      </div> 
+      
+
+    </div>
  
   </body>
   </main>
@@ -113,67 +131,31 @@
   </footer>
 
 <script>
-  // First carousel (slides)
-  const slides = document.querySelectorAll('.carousel-slide');
-  const slidePrevButton = document.querySelector('.carousel-button.prev');
-  const slideNextButton = document.querySelector('.carousel-button.next');
-  let currentSlide = 0;
-  const interval = 5000; // Change slide every 5 seconds
-  
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-  
-  function moveNextSlide() {
-    showSlide(currentSlide + 1);
-  }
-  
-  function movePreviousSlide() {
-    showSlide(currentSlide - 1);
-  }
-  
-  // Add click event listeners to slide buttons
-  slidePrevButton?.addEventListener('click', movePreviousSlide);
-  slideNextButton?.addEventListener('click', moveNextSlide);
-  
-  // Auto advance slides
-  setInterval(moveNextSlide, interval);
-  
-  // Second carousel (updates)
-  const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.update-card');
-  const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
-  const updateNextButton = document.querySelector('.updates-container .update-button.next');
-  let currentUpdateIndex = 0;
-  const cardsToShow = Math.floor(window.innerWidth / 320); // Approximate cards visible
-  
-  function updateSlider() {
-    const cardWidth = updateCards[0]?.offsetWidth + 20; // Include gap
-    if (updatesTrack) {
-      updatesTrack.style.transform = `translateX(-${currentUpdateIndex * cardWidth}px)`;
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navItems = document.querySelectorAll('.non-drop');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            item.classList.toggle('active');
+        }
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && 
+        !navMenu.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navItems.forEach(item => item.classList.remove('active'));
     }
-  }
-  
-  function moveNextUpdate() {
-    currentUpdateIndex = Math.min(currentUpdateIndex + 1, updateCards.length - cardsToShow);
-    updateSlider();
-  }
-  
-  function movePreviousUpdate() {
-    currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
-    updateSlider();
-  }
-  
-  // Add click event listeners to update buttons
-  updatePrevButton?.addEventListener('click', movePreviousUpdate);
-  updateNextButton?.addEventListener('click', moveNextUpdate);
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    updateSlider();
-  });
+});
 
 </script>
 </body>

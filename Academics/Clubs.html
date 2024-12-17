@@ -76,7 +76,12 @@
 <header>
   <a href="../index.html"><img id="logo" src="../logo.png"> </a>
   <nav>
-    <ul>
+    <div class="menu-toggle">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+  </div>
+    <ul class="nav-menu">
       <li><a class="non-drop" href="#">About Us</a>
         <ul class="dropdown-content">
           <li><a href="../History/History.html">History</a></li>
@@ -86,7 +91,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Academics</a>
         <ul class="dropdown-content">
           <li><a href="../Academics/Basiced.html">Basic Education</a></li>
@@ -96,7 +101,7 @@
           <li><a href="../Academics/Clubs.html">Clubs and Organizations</a></li>
         </ul>
       </li>
-      <li> | </li>
+      <li class="temp"> | </li>
 
       <li><a class="non-drop" href="#">Faculty</a>
         <ul class="dropdown-content">
@@ -106,7 +111,7 @@
         </ul>
       </li>
 
-      <li> | </li>
+      <li class="temp"> | </li>
       <li><a class="non-drop" href="#">Services</a>
         <ul class="dropdown-content">
           <li><a href="../Services/StudPortal.html">Student Portal</a></li>
@@ -196,70 +201,34 @@
 
   </footer>
 
-<script>
-  // First carousel (slides)
-  const slides = document.querySelectorAll('.carousel-slide');
-  const slidePrevButton = document.querySelector('.carousel-button.prev');
-  const slideNextButton = document.querySelector('.carousel-button.next');
-  let currentSlide = 0;
-  const interval = 5000; // Change slide every 5 seconds
-  
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-  
-  function moveNextSlide() {
-    showSlide(currentSlide + 1);
-  }
-  
-  function movePreviousSlide() {
-    showSlide(currentSlide - 1);
-  }
-  
-  // Add click event listeners to slide buttons
-  slidePrevButton?.addEventListener('click', movePreviousSlide);
-  slideNextButton?.addEventListener('click', moveNextSlide);
-  
-  // Auto advance slides
-  setInterval(moveNextSlide, interval);
-  
-  // Second carousel (updates)
-  const updatesTrack = document.querySelector('.updates-track');
-  const updateCards = document.querySelectorAll('.update-card');
-  const updatePrevButton = document.querySelector('.updates-container .update-button.prev');
-  const updateNextButton = document.querySelector('.updates-container .update-button.next');
-  let currentUpdateIndex = 0;
-  const cardsToShow = Math.floor(window.innerWidth / 320); // Approximate cards visible
-  
-  function updateSlider() {
-    const cardWidth = updateCards[0]?.offsetWidth + 20; // Include gap
-    if (updatesTrack) {
-      updatesTrack.style.transform = `translateX(-${currentUpdateIndex * cardWidth}px)`;
-    }
-  }
-  
-  function moveNextUpdate() {
-    currentUpdateIndex = Math.min(currentUpdateIndex + 1, updateCards.length - cardsToShow);
-    updateSlider();
-  }
-  
-  function movePreviousUpdate() {
-    currentUpdateIndex = Math.max(currentUpdateIndex - 1, 0);
-    updateSlider();
-  }
-  
-  // Add click event listeners to update buttons
-  updatePrevButton?.addEventListener('click', movePreviousUpdate);
-  updateNextButton?.addEventListener('click', moveNextUpdate);
-  
-  // Handle window resize
-  window.addEventListener('resize', () => {
-    updateSlider();
-  });
-
-</script>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navItems = document.querySelectorAll('.non-drop');
+    
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+    
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                item.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !navMenu.contains(e.target) && 
+            !menuToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navItems.forEach(item => item.classList.remove('active'));
+        }
+    });
+    
+    </script>
 </body>
 
 </html>
